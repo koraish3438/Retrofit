@@ -1,7 +1,8 @@
 package com.example.retrofit
 
 data class ProductModel(
-    val id: Int,
+    val image: String,
     val title: String,
     val price: Double,
+    val rating: Double
 )
