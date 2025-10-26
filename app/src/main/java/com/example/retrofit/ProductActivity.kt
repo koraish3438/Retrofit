@@ -1,10 +1,8 @@
 package com.example.retrofit
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofit.databinding.ActivityProductBinding
@@ -20,22 +18,24 @@ class ProductActivity : AppCompatActivity() {
         binding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // ViewModel
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
+
+        // Adapter
         productAdapter = ProductAdapter(emptyList())
-
-        binding.refreshBtn.setOnClickListener {
-            val intent = Intent(this@ProductActivity, ProductActivity::class.java)
-            startActivity(intent)
-        }
-
         binding.recyclerView.adapter = productAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
-        productViewModel.products.observe(this, Observer { products ->
+        // Observe products
+        productViewModel.products.observe(this) { products ->
             products?.let {
-                productAdapter = ProductAdapter(it)
-                binding.recyclerView.adapter = productAdapter
+                productAdapter.updateProducts(it)
             }
-        })
+        }
+
+        // Refresh button
+        binding.refreshBtn.setOnClickListener {
+            productViewModel.refreshProducts()
+        }
     }
 }
