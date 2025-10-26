@@ -15,11 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Retrofit"
-        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:text="@string/retrofit"
         android:textColor="@color/black"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +27,7 @@
         android:id="@+id/refreshBtn"
         android:layout_width="56dp"
         android:layout_height="56dp"
+        android:contentDescription="@string/refresh_product_list"
         android:src="@drawable/outline_forward_media_24"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="@+id/topTV"
