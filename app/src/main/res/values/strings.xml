@@ -3,4 +3,8 @@
     <string name="develop_by_md_kajam_all_koraish">Developed by\nMD. KAJAM-ALL KORAISH</string>
     <string name="retrofit">Retrofit</string>
     <string name="refresh_product_list">Refresh product list</string>
+    <string name="rating">Rating</string>
+    <string name="price">Price</string>
+    <string name="name">Name</string>
+    <string name="this_is_product_image">This is product image</string>
 </resources>

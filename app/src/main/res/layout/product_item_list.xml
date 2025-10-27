@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="15dp"
     app:cardCornerRadius="16dp"
-    android:layout_marginVertical="10dp"
-    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="8dp"
+    android:layout_marginHorizontal="5dp"
     android:id="@+id/topCard">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +20,7 @@
             android:id="@+id/productImage"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:contentDescription="@string/this_is_product_image"
             android:src="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="8dp"
-            android:text="Name"
+            android:text="@string/name"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -48,10 +49,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Price"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/price"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/productImage"
             app:layout_constraintTop_toBottomOf="@+id/productName" />
@@ -61,14 +63,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginStart="70dp"
-            android:text="Rating"
-            android:textColor="@color/black"
-            android:textSize="24sp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/rating"
+            android:textColor="@color/yellow"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/productPrice"
             app:layout_constraintTop_toTopOf="@+id/productPrice" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
