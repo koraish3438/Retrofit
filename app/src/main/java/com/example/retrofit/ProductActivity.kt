@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofit.databinding.ActivityProductBinding
 
 class ProductActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityProductBinding
     private lateinit var productAdapter: ProductAdapter
     private lateinit var productViewModel: ProductViewModel
@@ -18,24 +19,19 @@ class ProductActivity : AppCompatActivity() {
         binding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // ViewModel
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
 
-        // Adapter
         productAdapter = ProductAdapter(emptyList())
-        binding.recyclerView.adapter = productAdapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.apply {
+            adapter = productAdapter
+            layoutManager = LinearLayoutManager(this@ProductActivity)
+            setHasFixedSize(true)
+        }
 
-        // Observe products
         productViewModel.products.observe(this) { products ->
-            products?.let {
-                productAdapter.updateProducts(it)
-            }
+            products?.let { productAdapter.updateProducts(it) }
         }
 
-        // Refresh button
-        binding.refreshBtn.setOnClickListener {
-            productViewModel.refreshProducts()
-        }
+        binding.refreshBtn.setOnClickListener { productViewModel.refreshProducts() }
     }
 }

@@ -12,18 +12,15 @@ class ProductViewModel : ViewModel() {
     val products: LiveData<List<ProductModel>> get() = _products
 
     init {
-        // Initial fetch
         refreshProducts()
     }
 
-    // Make public so Activity can call refresh
     fun refreshProducts() {
         viewModelScope.launch {
             fetchProducts()
         }
     }
 
-    // Private fetch function
     private suspend fun fetchProducts() {
         try {
             val response = ApiClient.apiService.getProduct()
@@ -32,5 +29,4 @@ class ProductViewModel : ViewModel() {
             e.printStackTrace()
         }
     }
-
 }

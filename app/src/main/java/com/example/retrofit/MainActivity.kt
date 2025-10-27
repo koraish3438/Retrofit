@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.retrofit.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, ProductActivity::class.java)
             startActivity(intent)
+            finish() // prevent going back to splash
         }, 2000)
     }
 }

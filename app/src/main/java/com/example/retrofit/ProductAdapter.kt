@@ -30,7 +30,6 @@ class ProductAdapter(var products: List<ProductModel>) :
 
     override fun getItemCount(): Int = products.size
 
-    // Update data
     fun updateProducts(newProducts: List<ProductModel>) {
         products = newProducts
         notifyDataSetChanged()
