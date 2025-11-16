@@ -59,4 +59,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.0")
     //Glide dependency
     implementation("com.github.bumptech.glide:glide:5.0.5")
+
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }

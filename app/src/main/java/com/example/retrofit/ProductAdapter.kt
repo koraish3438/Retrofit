@@ -20,12 +20,12 @@ class ProductAdapter(var products: List<ProductModel>) :
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val currentItem = products[position]
-        holder.binding.productName.text = currentItem.title
-        holder.binding.productPrice.text = "$${currentItem.price}"
-        holder.binding.productRating.text = currentItem.rating.rate.toString()
+        holder.binding.textTitle.text = currentItem.title
+        holder.binding.textId.text = currentItem.id.toString()
+        holder.binding.textAlbumId.text = currentItem.albumId.toString()
         Glide.with(holder.binding.root.context)
-            .load(currentItem.image)
-            .into(holder.binding.productImage)
+            .load(currentItem.thumbnailUrl)
+            .into(holder.binding.imageThumbnail)
     }
 
     override fun getItemCount(): Int = products.size
